@@ -15,11 +15,15 @@ for (const page of pages) {
     path.join(SRC, "content", page.slug + ".html"),
     "utf8"
   );
+  // relative prefix back to the site root, so the site works both at a
+  // domain root (custom domain) and in a subfolder (github.io staging)
+  const root = page.slug === "index" ? "./" : "../";
   let html = template
     .replaceAll("{{TITLE}}", page.title)
     .replaceAll("{{DESC}}", page.desc)
     .replaceAll("{{CANONICAL}}", page.slug === "index" ? "/" : `/${page.slug}/`)
-    .replaceAll("{{CONTENT}}", content);
+    .replaceAll("{{CONTENT}}", content)
+    .replaceAll("{{ROOT}}", root);
 
   // mark active nav item
   html = html.replace(

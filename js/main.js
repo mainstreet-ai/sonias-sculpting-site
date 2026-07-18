@@ -7,6 +7,13 @@ const SQUARE_BOOKING_URL = ""; // e.g. "https://squareup.com/appointments/book/X
 const CONTACT_WEBHOOK = ""; // e.g. "https://<your-n8n>/webhook/sonias-contact"
 const REVIEW_WEBHOOK = "";  // e.g. "https://<your-n8n>/webhook/sonias-review"
 
+/* site root (works at domain root and in a subfolder like github.io staging) —
+   derived from this script's own URL: <root>/js/main.js */
+const SITE_ROOT = new URL(
+  "..",
+  document.querySelector('script[src$="main.js"]').src
+).pathname;
+
 /* ==== mobile nav ==== */
 const toggle = document.querySelector(".nav-toggle");
 const nav = document.querySelector(".site-nav");
@@ -41,7 +48,7 @@ document.querySelectorAll("[data-booking]").forEach((el) => {
     el.setAttribute("target", "_blank");
     el.setAttribute("rel", "noopener");
   } else {
-    el.setAttribute("href", "/contact/");
+    el.setAttribute("href", SITE_ROOT + "contact/");
   }
 });
 
