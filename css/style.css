@@ -48,54 +48,48 @@ h3 { font-size: 1.25rem; }
 .site-header {
   position: sticky; top: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
-  gap: 1rem; padding: 0.7rem 5vw;
-  background: rgba(255, 253, 248, 0.96);
-  border-bottom: 1px solid var(--line);
+  gap: 1rem; padding: 0.5rem 5vw;
+  background: rgba(19, 17, 16, 0.97);
+  border-bottom: 1px solid rgba(201, 162, 75, 0.45);
   backdrop-filter: blur(8px);
 }
-.brand { display: flex; align-items: center; gap: 0.6rem; color: var(--ink); }
-.brand-mark {
-  width: 2.4rem; height: 2.4rem; border-radius: 50%;
-  display: grid; place-items: center;
-  background: var(--onyx); color: var(--gold);
-  font-family: var(--serif); font-size: 1.4rem; font-weight: 700;
-}
-.brand-text { font-size: 1.15rem; }
-.brand-text em { font-style: normal; color: var(--gold-dark); }
+.brand { display: flex; align-items: center; }
+.brand-logo { height: 64px; width: auto; }
+.footer-logo { height: 110px; width: auto; margin-bottom: 0.8rem; }
 
 .site-nav { display: flex; align-items: center; gap: 1.1rem; flex-wrap: wrap; }
 .site-nav > a, .nav-drop-btn {
   font-family: var(--sans); font-size: 0.86rem; font-weight: 400;
   letter-spacing: 0.09em; text-transform: uppercase;
-  color: var(--ink); background: none; border: 0; cursor: pointer;
+  color: var(--cream); background: none; border: 0; cursor: pointer;
   padding: 0.3rem 0;
 }
 .site-nav > a:hover, .nav-drop-btn:hover,
-.site-nav > a.active, .nav-drop-btn.active { color: var(--gold-dark); }
+.site-nav > a.active, .nav-drop-btn.active { color: var(--gold); }
 .nav-cta {
-  border: 1px solid var(--gold-dark); padding: 0.35rem 1rem !important;
-  border-radius: 2rem;
+  border: 1px solid var(--gold); padding: 0.35rem 1rem !important;
+  border-radius: 2rem; color: var(--gold) !important;
 }
-.nav-cta:hover { background: var(--gold-dark); color: var(--cream) !important; }
+.nav-cta:hover { background: var(--gold); color: var(--onyx) !important; }
 
 .nav-dropdown { position: relative; }
 .nav-drop-menu {
   display: none; position: absolute; top: 100%; left: 0;
   min-width: 230px; padding: 0.5rem 0;
-  background: var(--ivory); border: 1px solid var(--line);
-  box-shadow: 0 12px 30px rgba(19, 17, 16, 0.12);
+  background: var(--charcoal); border: 1px solid rgba(201, 162, 75, 0.35);
+  box-shadow: 0 12px 30px rgba(19, 17, 16, 0.45);
 }
 .nav-dropdown.open .nav-drop-menu { display: block; }
 .nav-drop-menu a {
   display: block; padding: 0.45rem 1.1rem;
-  font-size: 0.85rem; color: var(--ink);
+  font-size: 0.85rem; color: var(--cream);
 }
-.nav-drop-menu a:hover { background: var(--cream); color: var(--gold-dark); }
+.nav-drop-menu a:hover { background: var(--onyx); color: var(--gold); }
 
 .nav-toggle { display: none; background: none; border: 0; cursor: pointer; }
 .nav-toggle span {
   display: block; width: 24px; height: 2px; margin: 5px 0;
-  background: var(--ink); transition: 0.2s;
+  background: var(--cream); transition: 0.2s;
 }
 
 /* ---------- hero ---------- */
@@ -303,10 +297,11 @@ h3 { font-size: 1.25rem; }
 /* ---------- responsive ---------- */
 @media (max-width: 1024px) {
   .nav-toggle { display: block; }
+  .brand-logo { height: 52px; }
   .site-nav {
     display: none; position: absolute; top: 100%; left: 0; right: 0;
     flex-direction: column; align-items: flex-start; gap: 0;
-    background: var(--ivory); border-bottom: 1px solid var(--line);
+    background: var(--charcoal); border-bottom: 1px solid rgba(201, 162, 75, 0.35);
     padding: 0.5rem 5vw 1rem;
   }
   .site-nav.open { display: flex; }
