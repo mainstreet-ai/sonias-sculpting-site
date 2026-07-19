@@ -2,7 +2,8 @@
 
 /* ==== CONFIG — fill these in at launch ==== */
 // Square Appointments booking page (from Sonia's Square Dashboard > Appointments > Online Booking)
-const SQUARE_BOOKING_URL = ""; // e.g. "https://squareup.com/appointments/book/XXXX"
+// SANDBOX (MainStreet AI LLC test account) — swap for Sonia's real booking URL at launch
+const SQUARE_BOOKING_URL = "https://book.squareup.com/appointments/e6dteoexwqafsj/location/LEJJDXBH9BJZB";
 // n8n webhook endpoints (production URLs from the n8n workflows)
 const CONTACT_WEBHOOK = ""; // e.g. "https://<your-n8n>/webhook/sonias-contact"
 const REVIEW_WEBHOOK = "";  // e.g. "https://<your-n8n>/webhook/sonias-review"
