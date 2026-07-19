@@ -106,6 +106,7 @@ h3 { font-size: 1.25rem; }
 .hero .eyebrow {
   color: var(--gold); text-transform: uppercase;
   letter-spacing: 0.22em; font-size: 0.8rem; margin-bottom: 1rem;
+  max-width: none;
 }
 .hero h1 { max-width: 17ch; }
 .hero p { max-width: 55ch; margin: 1.2rem 0 2rem; color: #e8e2d6; }
@@ -179,7 +180,10 @@ h3 { font-size: 1.25rem; }
   display: grid; gap: 1.4rem;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   max-width: 72rem; margin: 2rem auto 0;
+  align-items: start;
 }
+.photo-band-2 { max-width: 54rem; }
+.nowrap { white-space: nowrap; }
 
 /* ---------- embedded booking ---------- */
 .hero-compact { padding: clamp(2rem, 6vw, 3.5rem) 5vw; }
