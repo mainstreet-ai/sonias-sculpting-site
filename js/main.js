@@ -41,13 +41,17 @@ document.addEventListener("click", (e) => {
 });
 
 /* ==== Book Now buttons ==== */
-/* Every element with [data-booking] points to Square once configured;
-   until then it falls back to the contact page. */
+/* Every element with [data-booking] goes to the on-site booking page (which
+   embeds Square). An element can deep-link a specific service with
+   data-booking-service="<service-path>". Falls back to the contact page if
+   no booking URL is configured. */
 document.querySelectorAll("[data-booking]").forEach((el) => {
   if (SQUARE_BOOKING_URL) {
-    el.setAttribute("href", SQUARE_BOOKING_URL);
-    el.setAttribute("target", "_blank");
-    el.setAttribute("rel", "noopener");
+    const svc = el.getAttribute("data-booking-service");
+    el.setAttribute(
+      "href",
+      SITE_ROOT + "book/" + (svc ? "#" + svc : "")
+    );
   } else {
     el.setAttribute("href", SITE_ROOT + "contact/");
   }
