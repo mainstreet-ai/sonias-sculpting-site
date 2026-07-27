@@ -188,6 +188,32 @@ document.querySelectorAll("[data-booking]").forEach((el) => {
   });
 })();
 
+/* ==== Get Directions link (site-wide, in the footer) ==== */
+/* Matches the Get Directions quick action from the old Townsquare popup. Opens
+   Google Maps directions to the studio. Injected into the footer so it shows on
+   every page and on all devices. */
+(function addDirections() {
+  const footer = document.querySelector(".site-footer");
+  if (!footer || footer.querySelector("[data-directions]")) return;
+  const dirUrl =
+    "https://www.google.com/maps/dir/?api=1&destination=" +
+    encodeURIComponent("1550 Normandy Village Parkway, Suite 1, Jacksonville, FL 32221");
+  // find the paragraph holding the street address
+  let addrP = null;
+  footer.querySelectorAll("p").forEach((p) => {
+    if (/Normandy/i.test(p.textContent)) addrP = p;
+  });
+  const a = document.createElement("a");
+  a.href = dirUrl;
+  a.target = "_blank";
+  a.rel = "noopener";
+  a.setAttribute("data-directions", "");
+  a.textContent = "Get Directions";
+  a.style.cssText = "display:inline-block;margin-top:.35rem;color:var(--gold,#c9a24b)";
+  if (addrP) addrP.insertAdjacentElement("afterend", a);
+  else footer.appendChild(a);
+})();
+
 /* ==== promo modal (shown once per visitor per week) ==== */
 const promo = document.querySelector(".promo-overlay");
 if (promo) {
