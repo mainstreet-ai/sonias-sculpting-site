@@ -9,8 +9,8 @@ const SQUARE_BOOKING_URL = "https://book.squareup.com/appointments/e6dteoexwqafs
 // Live chat (Bug 3). Create a free account at https://www.tawk.to, then Admin >
 // Channels > Chat Widget, and paste the Property ID and Widget ID here. Until real
 // IDs are pasted, the widget stays off. It then loads on every page.
-const TAWK_PROPERTY_ID = "TAWK_PROPERTY_ID";
-const TAWK_WIDGET_ID = "TAWK_WIDGET_ID";
+const TAWK_PROPERTY_ID = "6a67ab6865781e1d468dc38c";
+const TAWK_WIDGET_ID = "1juifb3tn";
 
 // Per-service deep links (Bug 2). Key = service key. Value = that service's own
 // Square booking URL (open a single service in Square's booking flow and copy its
