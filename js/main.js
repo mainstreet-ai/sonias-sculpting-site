@@ -59,7 +59,7 @@ const PATH_TO_KEY = {
 };
 
 // n8n webhook endpoints (production URLs from the n8n workflows)
-const CONTACT_WEBHOOK = ""; // e.g. "https://<your-n8n>/webhook/sonias-contact"
+const CONTACT_WEBHOOK = "https://lineagestudio.app.n8n.cloud/webhook/931f551c-797b-4be2-81ce-380505712db0/sonias-contact";
 const REVIEW_WEBHOOK = "";  // e.g. "https://<your-n8n>/webhook/sonias-review"
 
 /* site root (works at domain root and in a subfolder like github.io staging) */
@@ -131,11 +131,11 @@ document.querySelectorAll("[data-booking]").forEach((el) => {
 });
 
 /* ==== booking page (Bug 1) ==== */
-/* Square blocks its hosted booking site from loading in an iframe on other domains
-   (X-Frame-Options), so the old raw iframe showed blank. Replace the booking area
-   with a clear launch button plus phone fallback, wired to the right Square URL
-   (per-service if ?s=<key> is present). This runs against the deployed page markup
-   as well as the rebuilt one, so it works either way. */
+/* Show Square's booking inside the page in a frame, so the visitor stays on Sonia's
+   site. The frame src is set to the resolved Square URL (per-service if ?s=<key> is
+   present, otherwise the general booking page). A small fallback link and phone
+   number sit below in case a visitor's browser blocks the frame. Runs against both
+   the deployed page markup and the rebuilt one. */
 (function configureBookingPage() {
   const wrap = document.querySelector(".booking-embed-wrap");
   if (!wrap) return;
@@ -143,38 +143,49 @@ document.querySelectorAll("[data-booking]").forEach((el) => {
   const params = new URLSearchParams(location.search);
   const url = bookingUrlFor(params.get("s"));
 
-  // hide any blank Square iframe
-  wrap.querySelectorAll(".booking-embed").forEach((f) => { f.style.display = "none"; });
+  // remove any previously injected launch box (idempotent across deploys)
+  const oldBox = wrap.querySelector(".booking-launch");
+  if (oldBox) oldBox.remove();
 
-  // reuse an existing launch button if the rebuilt page has one, else build it
-  let launch = wrap.querySelector("[data-booking-launch]");
-  if (!launch) {
-    const box = document.createElement("div");
-    box.className = "booking-launch";
-    box.innerHTML =
-      '<p>Ready to book?</p>' +
-      '<a class="btn btn-gold" data-booking-launch href="#">Open Booking</a>' +
-      '<p class="booking-fallback">Prefer to talk to us? Call ' +
-      '<a href="tel:+19042901551">904-290-1551</a>. Same-day appointments are often available.</p>';
-    wrap.insertBefore(box, wrap.firstChild);
-    launch = box.querySelector("[data-booking-launch]");
-
-    // minimal styles so the injected block looks right on the deployed page
-    if (!document.getElementById("booking-launch-style")) {
+  // show the booking frame, creating it if the page does not already have one
+  let frame = wrap.querySelector(".booking-embed");
+  if (!frame) {
+    frame = document.createElement("iframe");
+    frame.className = "booking-embed";
+    frame.title = "Online booking";
+    frame.setAttribute("loading", "eager");
+    frame.setAttribute("allow", "payment");
+    wrap.insertBefore(frame, wrap.firstChild);
+    if (!document.getElementById("booking-embed-style")) {
       const st = document.createElement("style");
-      st.id = "booking-launch-style";
+      st.id = "booking-embed-style";
       st.textContent =
-        ".booking-launch{text-align:center;padding:clamp(1.5rem,5vw,3rem) 1.5rem;" +
-        "border:1px solid var(--line,#e6ddcf);background:var(--ivory,#fffdf9);" +
-        "box-shadow:0 12px 32px rgba(19,17,16,.10)}" +
-        ".booking-launch p{margin:0 0 1rem}.booking-launch .btn{display:inline-block}" +
-        ".booking-launch .booking-fallback{margin-top:1rem;font-size:.9rem;color:var(--muted,#6b6257)}";
+        ".booking-embed{width:100%;height:min(78vh,900px);border:1px solid var(--line,#e6ddcf);" +
+        "background:var(--ivory,#fffdf9);box-shadow:0 12px 32px rgba(19,17,16,.10)}" +
+        ".booking-fallback{margin-top:.8rem;font-size:.9rem;color:var(--muted,#6b6257);text-align:center}";
       document.head.appendChild(st);
     }
   }
-  launch.setAttribute("href", url);
-  launch.setAttribute("target", "_blank");
-  launch.setAttribute("rel", "noopener");
+  frame.style.display = "";
+  frame.setAttribute("src", url);
+
+  // fallback line below the frame
+  let fb = wrap.querySelector(".booking-fallback");
+  if (!fb) {
+    fb = document.createElement("p");
+    fb.className = "booking-fallback";
+    fb.innerHTML =
+      'Having trouble with the booking window? ' +
+      '<a data-booking-launch target="_blank" rel="noopener" href="#">Open it in a new tab</a> ' +
+      'or call <a href="tel:+19042901551">904-290-1551</a>.';
+    wrap.appendChild(fb);
+  }
+  // point any launch/fallback link (including a hardcoded Square link) at the URL
+  wrap.querySelectorAll('[data-booking-launch], .booking-fallback a[href*="squareup.com"]').forEach((a) => {
+    a.setAttribute("href", url);
+    a.setAttribute("target", "_blank");
+    a.setAttribute("rel", "noopener");
+  });
 })();
 
 /* ==== promo modal (shown once per visitor per week) ==== */
