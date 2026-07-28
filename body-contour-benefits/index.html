@@ -104,42 +104,42 @@
       <div class="card">
         <h3>Cavitation</h3>
         <p>Reduces the body&rsquo;s fat deposits that can be hard to get rid of by exercising alone.</p>
-        <a class="btn btn-gold" href="#" data-booking>Book Now</a>
+        <a class="btn btn-gold" href="#" data-booking data-booking-service="cavitation">Book Now</a>
       </div>
       <div class="card">
         <h3>Radio Frequency</h3>
         <p>Helps with skin tightening, reducing the appearance of cellulite and lifting saggy skin.</p>
-        <a class="btn btn-gold" href="#" data-booking>Book Now</a>
+        <a class="btn btn-gold" href="#" data-booking data-booking-service="radio-frequency">Book Now</a>
       </div>
       <div class="card">
         <h3>Laser Lipo</h3>
         <p>This pain-free treatment helps reduce fat cells and works to form new collagen — lifting and tightening the skin with incredible, long-lasting results.</p>
-        <a class="btn btn-gold" href="#" data-booking>Book Now</a>
+        <a class="btn btn-gold" href="#" data-booking data-booking-service="laser-lipo">Book Now</a>
       </div>
       <div class="card">
         <h3>Wood Therapy</h3>
         <p>Helps fight cellulite on the body, leaving it silky and smooth.</p>
-        <a class="btn btn-gold" href="#" data-booking>Book Now</a>
+        <a class="btn btn-gold" href="#" data-booking data-booking-service="wood-therapy">Book Now</a>
       </div>
       <div class="card">
         <h3>Muscle Stimulation</h3>
         <p>Activates muscles through various electrical current forms delivered through electrodes on the target muscles.</p>
-        <a class="btn btn-gold" href="#" data-booking>Book Now</a>
+        <a class="btn btn-gold" href="#" data-booking data-booking-service="muscle-stimulation">Book Now</a>
       </div>
       <div class="card">
         <h3>Vacuum Therapy</h3>
         <p>Combats cellulite, drains the adipose tissue and moves fat toward the lymphatic system. Eliminates fat and has an exfoliating effect.</p>
-        <a class="btn btn-gold" href="#" data-booking>Book Now</a>
+        <a class="btn btn-gold" href="#" data-booking data-booking-service="vacuum-therapy">Book Now</a>
       </div>
       <div class="card">
         <h3>Sauna</h3>
         <p>Detox, increased blood circulation, pain reduction, anti-aging, skin rejuvenation — plus improved cardiovascular function, immune function, sleep, stress and relaxation.</p>
-        <a class="btn btn-gold" href="#" data-booking>Book Now</a>
+        <a class="btn btn-gold" href="#" data-booking data-booking-service="sauna">Book Now</a>
       </div>
       <div class="card">
         <h3>Vibration</h3>
         <p>Eliminates fat and builds muscle simultaneously.</p>
-        <a class="btn btn-gold" href="#" data-booking>Book Now</a>
+        <a class="btn btn-gold" href="#" data-booking data-booking-service="vibration">Book Now</a>
       </div>
     </div>
   </div>
@@ -162,8 +162,8 @@
     <p class="eyebrow center">Real Results</p>
     <h2 class="center">Before &amp; After</h2>
     <div class="photo-band photo-band-2">
-      <img class="inline-photo" src="../assets/img/spa-photo-1.jpeg" alt="Facial treatment before and after results at Sonia's Sculpting & Beyond" loading="lazy">
-      <img class="inline-photo" src="../assets/img/spa-photo-2.jpeg" alt="Body contouring before and after results at Sonia's Sculpting & Beyond" loading="lazy">
+      <img class="inline-photo" src="../assets/img/ba-body-contour-1.jpeg" alt="Body contouring waist before and after results at Sonia's Sculpting & Beyond" loading="lazy">
+      <img class="inline-photo" src="../assets/img/ba-body-contour-2.jpeg" alt="Body contouring abdomen before and after results at Sonia's Sculpting & Beyond" loading="lazy">
     </div>
   </div>
 </section>
@@ -206,6 +206,32 @@
     <a href="#" data-booking>Book Now</a>
     <a href="../contact/">Contact</a>
   </div>
+
+  <!-- ============================================================
+       LIVE CHAT (Bug 3 fix) — loads on EVERY page, not just booking.
+       Free widget from Tawk.to. SETUP (one time):
+         1. Create a free account at https://www.tawk.to
+         2. Admin > Channels > Chat Widget
+         3. Copy the Property ID and Widget ID
+         4. Paste them below in place of TAWK_PROPERTY_ID and TAWK_WIDGET_ID
+       Until real IDs are pasted, the widget stays off (no broken requests).
+       ============================================================ -->
+  <script>
+  (function () {
+    var PROPERTY_ID = "TAWK_PROPERTY_ID";
+    var WIDGET_ID = "TAWK_WIDGET_ID";
+    if (PROPERTY_ID === "TAWK_PROPERTY_ID" || WIDGET_ID === "TAWK_WIDGET_ID") return;
+    var Tawk_API = window.Tawk_API || (window.Tawk_API = {});
+    window.Tawk_LoadStart = new Date();
+    var s1 = document.createElement("script"),
+        s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = "https://embed.tawk.to/" + PROPERTY_ID + "/" + WIDGET_ID;
+    s1.charset = "UTF-8";
+    s1.setAttribute("crossorigin", "*");
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+  </script>
 
   <script src="../js/main.js"></script>
 </body>
