@@ -108,9 +108,8 @@
   <div class="narrow">
     <h2>Our Services</h2>
     <div class="cards">
-      <div class="card"><h3>Body Contouring</h3><p>Laser liposuction, body sculpting, non-invasive breast lift and cellulite reduction.</p></div>
+      <div class="card"><h3>Body Contouring</h3><p>Lipo, Lipo 360, Cellulite Treatment, BBL/Hips.</p></div>
       <div class="card"><h3>Facials &amp; Skin Care</h3><p>Facial treatments, skin care services and teeth whitening.</p></div>
-      <div class="card"><h3>Massage</h3><p>Post-op therapy, lymphatic massage, deep tissue, Swedish and hot stone massage.</p></div>
       <div class="card"><h3>Hair Restoration</h3><p>Non-surgical hair loss treatments using red light therapy.</p></div>
       <div class="card"><h3>Vaginal Tightening</h3><p>Non-invasive HIFU vaginal rejuvenation.</p></div>
     </div>
@@ -164,6 +163,32 @@
     <a href="#" data-booking>Book Now</a>
     <a href="../contact/">Contact</a>
   </div>
+
+  <!-- ============================================================
+       LIVE CHAT (Bug 3 fix) — loads on EVERY page, not just booking.
+       Free widget from Tawk.to. SETUP (one time):
+         1. Create a free account at https://www.tawk.to
+         2. Admin > Channels > Chat Widget
+         3. Copy the Property ID and Widget ID
+         4. Paste them below in place of TAWK_PROPERTY_ID and TAWK_WIDGET_ID
+       Until real IDs are pasted, the widget stays off (no broken requests).
+       ============================================================ -->
+  <script>
+  (function () {
+    var PROPERTY_ID = "TAWK_PROPERTY_ID";
+    var WIDGET_ID = "TAWK_WIDGET_ID";
+    if (PROPERTY_ID === "TAWK_PROPERTY_ID" || WIDGET_ID === "TAWK_WIDGET_ID") return;
+    var Tawk_API = window.Tawk_API || (window.Tawk_API = {});
+    window.Tawk_LoadStart = new Date();
+    var s1 = document.createElement("script"),
+        s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = "https://embed.tawk.to/" + PROPERTY_ID + "/" + WIDGET_ID;
+    s1.charset = "UTF-8";
+    s1.setAttribute("crossorigin", "*");
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+  </script>
 
   <script src="../js/main.js"></script>
 </body>
