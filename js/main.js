@@ -23,6 +23,8 @@ const BOOKING_SERVICES = {
   "teen-facial": "", "basic-facial": "", "rejuvenation-facial": "",
   "microdermabrasion": "", "hydrodermabrasion": "", "skin-tightening-facial": "",
   "signature-glow-facial": "",
+  "laser-hair-removal": "", "hair-restoration": "", "teeth-whitening": "",
+  "vaginal-rejuvenation": "",
 };
 
 // Service-card heading text -> service key (Bug 2 runtime mapping, so per-service
@@ -41,6 +43,8 @@ const HEADING_TO_KEY = {
   "Hydrodermabrasion Facial": "hydrodermabrasion",
   "Skin Tightening Facial": "skin-tightening-facial",
   "Sonia's Signature Glow": "signature-glow-facial",
+  "Laser Hair Removal": "laser-hair-removal", "Hair Restore": "hair-restoration",
+  "Teeth Whitening": "teeth-whitening", "Vaginal Rejuvenation": "vaginal-rejuvenation",
 };
 
 // Single-service pages: URL path fragment -> service key, for buttons not inside a
