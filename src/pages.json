@@ -3,7 +3,7 @@
     "slug": "index",
     "nav": "index",
     "title": "Med Spa & Body Treatments | Sonia's Sculpting & Beyond | Jacksonville, FL",
-    "desc": "Non-invasive body contouring, body sculpting, facials and laser hair removal at Sonia's Sculpting & Beyond, a med spa in Jacksonville, FL serving Orange Park, Green Cove Springs and Ponte Vedra Beach."
+    "desc": "Non-invasive body contouring, body sculpting and facials at Sonia's Sculpting & Beyond, a med spa in Jacksonville, FL serving Orange Park, Green Cove Springs and Ponte Vedra Beach."
   },
   {
     "slug": "about-us",
@@ -21,7 +21,7 @@
     "slug": "med-spa-resources",
     "nav": "med-spa-resources",
     "title": "Resources | Sonia's Sculpting & Beyond | Jacksonville, FL",
-    "desc": "Med spa tips and resources from Sonia's Sculpting & Beyond: body contouring, body sculpting, facials, laser hair removal and skin care articles for Northeast Florida."
+    "desc": "Med spa tips and resources from Sonia's Sculpting & Beyond: body contouring, body sculpting, facials and skin care articles for Northeast Florida."
   },
   {
     "slug": "testimonials",
@@ -48,12 +48,6 @@
     "desc": "Teen facials, rejuvenation facials, microdermabrasion, hydrodermabrasion and skin tightening facials at our Jacksonville, FL med spa."
   },
   {
-    "slug": "other",
-    "nav": "services",
-    "title": "Laser Hair Removal & More | Sonia's Sculpting & Beyond | Jacksonville, FL",
-    "desc": "IPL laser hair removal, red light hair restoration, teeth whitening and non-invasive vaginal rejuvenation in Jacksonville, FL."
-  },
-  {
     "slug": "booth-rentals",
     "nav": "services",
     "title": "Booth & Private Suite Rentals | Sonia's Sculpting & Beyond | Jacksonville, FL",
@@ -63,7 +57,7 @@
     "slug": "faq",
     "nav": "faq",
     "title": "FAQ | Sonia's Sculpting & Beyond | Jacksonville, FL",
-    "desc": "Answers to common questions about body sculpting, body contouring, facials and laser hair removal from Sonia's Sculpting & Beyond in Jacksonville, FL."
+    "desc": "Answers to common questions about body sculpting, body contouring and facials from Sonia's Sculpting & Beyond in Jacksonville, FL."
   },
   {
     "slug": "classes",
