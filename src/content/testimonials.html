@@ -1,13 +1,13 @@
 <section class="hero" style="background-image: linear-gradient(115deg, rgba(19,17,16,0.94) 30%, rgba(19,17,16,0.55) 75%, rgba(19,17,16,0.35)), url('{{ROOT}}assets/img/testimonials.jpeg')">
   <p class="eyebrow">Testimonials</p>
-  <h1>How Are We Doing?</h1>
-  <p>Leave us a review below — we&rsquo;d love to hear about your experience.</p>
-  <a class="btn btn-gold" href="{{ROOT}}contact/">Contact Us Today</a>
+  <h1>Share Your Experience</h1>
+  <p>We&rsquo;d love to hear about your experience at Sonia&rsquo;s Sculpting &amp; Beyond. Your feedback helps us continue providing exceptional care and helps others feel confident choosing us.</p>
+  <a class="btn btn-gold" href="#review-form">Leave a Review</a>
 </section>
 
 <section class="section">
   <div class="narrow">
-    <h2>Review Form</h2>
+    <h2>Leave a Review</h2>
     <form id="review-form" class="form-card" novalidate>
       <div class="form-row hp-field" aria-hidden="true">
         <label for="company">Company</label>
@@ -18,16 +18,12 @@
         <input type="text" id="firstName" name="firstName" required autocomplete="given-name">
       </div>
       <div class="form-row">
-        <label for="lastName">Last Name</label>
-        <input type="text" id="lastName" name="lastName" autocomplete="family-name">
+        <label for="lastInitial">Last Initial <span class="field-note">(optional)</span></label>
+        <input type="text" id="lastInitial" name="lastInitial" maxlength="1" autocomplete="off">
       </div>
       <div class="form-row">
-        <label for="email">Email</label>
+        <label for="email">Email <span class="field-note">(never published, so we can reach you if we have a question)</span></label>
         <input type="email" id="email" name="email" required autocomplete="email">
-      </div>
-      <div class="form-row">
-        <label for="phone">Phone</label>
-        <input type="tel" id="phone" name="phone" autocomplete="tel">
       </div>
       <div class="form-row">
         <label for="rating">Rating</label>
@@ -44,25 +40,35 @@
         <label for="message">Your Review</label>
         <textarea id="message" name="message" rows="5" required></textarea>
       </div>
+      <div class="form-row form-check">
+        <label for="consent">
+          <input type="checkbox" id="consent" name="consent" value="yes">
+          I give Sonia&rsquo;s Sculpting &amp; Beyond permission to display my testimonial on the website and in marketing materials, using my first name and last initial.
+        </label>
+      </div>
       <button type="submit" class="btn btn-gold">Submit Review</button>
       <p class="form-status" role="status"></p>
+      <p class="fineprint">Every review is read and approved by Sonia before it appears anywhere on the website. Leaving the permission box unchecked means your feedback comes straight to Sonia and is never published.</p>
     </form>
   </div>
 </section>
 
-<section class="section">
+<section class="section section-alt">
   <div class="narrow">
     <p class="eyebrow center">Real Results</p>
     <h2 class="center">Before &amp; After</h2>
+    <p class="center">Real clients. Real treatments. Real results.</p>
     <div class="photo-band photo-band-2">
-      <img class="inline-photo" src="{{ROOT}}assets/img/spa-photo-1.jpeg" alt="Facial treatment before and after results at Sonia's Sculpting & Beyond" loading="lazy">
-      <img class="inline-photo" src="{{ROOT}}assets/img/spa-photo-2.jpeg" alt="Body contouring before and after results at Sonia's Sculpting & Beyond" loading="lazy">
+      <img class="inline-photo" src="{{ROOT}}assets/img/spa-photo-1.jpeg" alt="Facial treatment before and after results at Sonia's Sculpting &amp; Beyond" loading="lazy">
+      <img class="inline-photo" src="{{ROOT}}assets/img/spa-photo-2.jpeg" alt="Body contouring before and after results at Sonia's Sculpting &amp; Beyond" loading="lazy">
     </div>
+    <p class="fineprint center">Individual results may vary.</p>
   </div>
 </section>
 
 <section class="cta-band">
-  <h2>Loved Your Visit?</h2>
-  <p>Refer a friend — when they book their first visit, you&rsquo;ll receive a free service on us as a thank-you.</p>
+  <h2>Share the Glow</h2>
+  <p>Give $25. Get $50. Refer someone new to Sonia&rsquo;s Sculpting &amp; Beyond. Your referral will receive $25 off their first qualifying facial of $150+, and after they complete their qualifying appointment, you will receive a $50 credit toward an eligible service of $150+.</p>
   <a class="btn btn-gold" href="{{ROOT}}contact/">Refer a Friend</a>
+  <p class="fineprint">Credits have no cash value, are non-transferable, and cannot be combined with other promotions, packages, or membership benefits.</p>
 </section>

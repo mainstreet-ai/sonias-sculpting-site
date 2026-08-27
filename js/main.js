@@ -22,10 +22,7 @@ const BOOKING_SERVICES = {
   "muscle-stimulation": "", "vacuum-therapy": "", "sauna": "", "vibration": "",
   "teen-facial": "", "basic-facial": "", "rejuvenation-facial": "",
   "microdermabrasion": "", "hydrodermabrasion": "", "skin-tightening-facial": "",
-  "weight-loss-program": "", "iv-hydration": "", "makeup-application": "",
-  "eyelash-extensions": "", "pedicure": "", "nail-services": "",
-  "laser-hair-removal": "", "hair-restoration": "", "teeth-whitening": "",
-  "vaginal-rejuvenation": "",
+  "signature-glow-facial": "",
 };
 
 // Service-card heading text -> service key (Bug 2 runtime mapping, so per-service
@@ -43,20 +40,13 @@ const HEADING_TO_KEY = {
   "Microdermabrasion Facial": "microdermabrasion",
   "Hydrodermabrasion Facial": "hydrodermabrasion",
   "Skin Tightening Facial": "skin-tightening-facial",
-  "Laser Hair Removal": "laser-hair-removal", "Hair Restore": "hair-restoration",
-  "Teeth Whitening": "teeth-whitening", "Vaginal Rejuvenation": "vaginal-rejuvenation",
+  "Sonia's Signature Glow": "signature-glow-facial",
 };
 
 // Single-service pages: URL path fragment -> service key, for buttons not inside a
-// titled service card.
-const PATH_TO_KEY = {
-  "eyelash-extensions": "eyelash-extensions",
-  "iv-hydration-services": "iv-hydration",
-  "nail-services": "nail-services",
-  "pedicure-services": "pedicure",
-  "professional-makeup": "makeup-application",
-  "weight-loss-services": "weight-loss-program",
-};
+// titled service card. Empty since the single-service pages were retired Aug 2026;
+// add an entry here if a new standalone service page is created.
+const PATH_TO_KEY = {};
 
 // n8n webhook endpoints (production URLs from the n8n workflows)
 const CONTACT_WEBHOOK = "https://lineagestudio.app.n8n.cloud/webhook/931f551c-797b-4be2-81ce-380505712db0/sonias-contact";

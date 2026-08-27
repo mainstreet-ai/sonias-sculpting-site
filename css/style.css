@@ -320,6 +320,35 @@ h3 { font-size: 1.25rem; }
   background: none; border: 0; font-size: 1.5rem; cursor: pointer; color: var(--muted);
 }
 
+/* ---------- fine print, notes, membership ---------- */
+.fineprint {
+  font-size: 0.8rem; line-height: 1.6; color: var(--muted);
+  margin-top: 1rem; max-width: 60ch;
+}
+.fineprint.center { margin-inline: auto; text-align: center; }
+.cta-band .fineprint { color: rgba(250, 246, 239, 0.7); margin-inline: auto; }
+
+.field-note {
+  text-transform: none; letter-spacing: 0; font-size: 0.78rem;
+  color: var(--muted); font-weight: 300;
+}
+
+.form-check { margin: 1.4rem 0 1.2rem; }
+.form-check label {
+  display: flex; gap: 0.6rem; align-items: flex-start;
+  text-transform: none; letter-spacing: 0; font-size: 0.88rem;
+  line-height: 1.55; color: var(--ink); margin-bottom: 0;
+}
+.form-check input[type="checkbox"] {
+  width: auto; flex: 0 0 auto; margin-top: 0.28rem; accent-color: var(--gold-dark);
+}
+
+.pricing-grid-single { max-width: 34rem; }
+.price-card .price-period {
+  font-family: var(--sans); font-size: 1rem; color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
 /* ---------- responsive ---------- */
 @media (max-width: 1024px) {
   .nav-toggle { display: block; }
