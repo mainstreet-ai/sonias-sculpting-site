@@ -88,11 +88,15 @@
 <section class="section">
   <div class="narrow">
     <h2>Leave a Review</h2>
-    <form id="review-form" class="form-card" novalidate>
+    <form id="review-form" class="form-card" method="POST" action="https://lineagestudio.app.n8n.cloud/webhook/sonias-review">
       <div class="form-row hp-field" aria-hidden="true">
         <label for="company">Company</label>
         <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
+        <label for="ssb_alt_uri">Website</label>
+        <input type="text" id="ssb_alt_uri" name="ssb_alt_uri" tabindex="-1" autocomplete="off">
       </div>
+      <input type="hidden" name="ssb_ok" id="ssb_ok" value="">
+      <input type="hidden" name="ssb_t" id="ssb_t" value="">
       <div class="form-row">
         <label for="firstName">First Name</label>
         <input type="text" id="firstName" name="firstName" required autocomplete="given-name">
@@ -126,8 +130,7 @@
           I give Sonia&rsquo;s Sculpting &amp; Beyond permission to display my testimonial on the website and in marketing materials, using my first name and last initial.
         </label>
       </div>
-      <button type="submit" class="btn btn-gold">Submit Review</button>
-      <p class="form-status" role="status"></p>
+      <button type="submit" class="btn btn-gold" id="review-submit">Submit Review</button>
       <p class="fineprint">Every review is read and approved by Sonia before it appears anywhere on the website. Leaving the permission box unchecked means your feedback comes straight to Sonia and is never published.</p>
     </form>
   </div>

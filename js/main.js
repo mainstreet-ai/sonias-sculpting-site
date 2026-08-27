@@ -50,7 +50,11 @@ const PATH_TO_KEY = {};
 
 // n8n webhook endpoints (production URLs from the n8n workflows)
 const CONTACT_WEBHOOK = "https://lineagestudio.app.n8n.cloud/webhook/931f551c-797b-4be2-81ce-380505712db0/sonias-contact";
-const REVIEW_WEBHOOK = "";  // e.g. "https://<your-n8n>/webhook/sonias-review"
+// The review form posts directly with a standard HTML form (method="POST" action="...")
+// so it never touches fetch() and never hits CORS. The endpoint lives in the form tag in
+// src/content/testimonials.html. Recorded here so both halves stay findable:
+//   https://lineagestudio.app.n8n.cloud/webhook/sonias-review
+// n8n workflow: "Sonia's Sculpting Website Review Form" (Hf2SU4buog8jbMrI).
 
 /* site root (works at domain root and in a subfolder like github.io staging) */
 const SITE_ROOT = new URL(
@@ -240,6 +244,61 @@ if (promo) {
   s0.parentNode.insertBefore(s1, s0);
 })();
 
+/* ==== review form (standard HTML POST, no fetch) ==== */
+/* Fills the two hidden anti-bot fields the n8n Spam Gate checks, and guards against
+   the double-submit that created duplicate leads on the MainStreet AI form.
+     ssb_ok  proves JavaScript ran on this page. Must match the token n8n rebuilds.
+     ssb_t   milliseconds spent on the page before submitting. Must be >= 4000. */
+(function prepareReviewForm() {
+  const form = document.getElementById("review-form");
+  if (!form) return;
+
+  const loadedAt = Date.now();
+
+  function pad(n) { return n < 10 ? "0" + n : "" + n; }
+  function tokenFor(ms) {
+    const d = new Date(ms);
+    const stamp = "" + d.getUTCFullYear() + pad(d.getUTCMonth() + 1) + pad(d.getUTCDate());
+    return stamp.split("").reverse().join("") + "-ssb";
+  }
+
+  const okField = document.getElementById("ssb_ok");
+  const tField = document.getElementById("ssb_t");
+  if (okField) okField.value = tokenFor(Date.now());
+
+  const btn = document.getElementById("review-submit");
+  let submitted = false;
+
+  form.addEventListener("submit", (e) => {
+    if (submitted) {
+      e.preventDefault();
+      return;
+    }
+    submitted = true;
+    if (okField) okField.value = tokenFor(Date.now());
+    if (tField) tField.value = String(Date.now() - loadedAt);
+    if (btn) {
+      /* Disabling inside the submit handler cancels the native POST in some
+         browsers. A zero-delay timer lets the POST leave first. */
+      setTimeout(() => {
+        btn.disabled = true;
+        btn.setAttribute("aria-busy", "true");
+        btn.textContent = "Sending...";
+      }, 0);
+    }
+  });
+
+  /* Back-button navigation serves a frozen form from bfcache; restore the button. */
+  window.addEventListener("pageshow", () => {
+    submitted = false;
+    if (btn) {
+      btn.disabled = false;
+      btn.removeAttribute("aria-busy");
+      btn.textContent = "Submit Review";
+    }
+  });
+})();
+
 /* ==== form submission via n8n ==== */
 async function wireForm(formId, webhook) {
   const form = document.getElementById(formId);
@@ -273,4 +332,4 @@ async function wireForm(formId, webhook) {
   });
 }
 wireForm("contact-form", CONTACT_WEBHOOK);
-wireForm("review-form", REVIEW_WEBHOOK);
+/* review-form submits as a standard HTML POST; see prepareReviewForm() above. */
